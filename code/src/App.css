@@ -90,3 +90,64 @@ h1 {
   cursor: pointer;
 }
  
+
+
+.Todo {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.title-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title-container p {
+  margin: 0;
+  cursor: pointer;
+}
+
+.toggle-description-icon {
+  cursor: pointer;
+}
+
+.description-container {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-top: 1px solid #ddd;
+}
+
+.description {
+  margin-bottom: 5px;
+}
+
+.timestamp {
+  font-size: 0.8em;
+  color: #666;
+}
+
+.icons-container {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.edit-icon,
+.delete-icon {
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: #aaa;
+}
+
+.incompleted {
+  color: #000;
+}

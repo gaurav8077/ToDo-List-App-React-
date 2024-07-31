@@ -1,22 +1,42 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react';
 
-export const TodoForm = ({addTodo}) => {
-    const [value, setValue] = useState('');
+export const TodoForm = ({ addTodo }) => {
+  const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
 
-    const handleSubmit = (e) => {
-      // prevent default action
-        e.preventDefault();
-        if (value) {
-          // add todo
-          addTodo(value);
-          // clear form after submission
-          setValue('');
-        }
-      };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (title && description) {
+      addTodo({
+        title: title,
+        description: description,
+        timestamp: new Date().toISOString(),
+        completed: false,
+      });
+      setTitle('');
+      setDescription('');
+    }
+  };
+
   return (
     <form onSubmit={handleSubmit} className="TodoForm">
-    <input type="text" value={value} onChange={(e) => setValue(e.target.value)} className="todo-input" placeholder='What is the task today?' />
-    <button type="submit" className='todo-btn'>Add Task</button>
-  </form>
-  )
-}
+      <input
+        type="text"
+        value={title}
+        onChange={(e) => setTitle(e.target.value)}
+        className="todo-input"
+        placeholder="Title"
+      />
+      <input
+        type="text"
+        value={description}
+        onChange={(e) => setDescription(e.target.value)}
+        className="todo-input"
+        placeholder="Description"
+      />
+      <button type="submit" className="todo-btn">
+        Add Task
+      </button>
+    </form>
+  );
+};
